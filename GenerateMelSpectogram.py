@@ -10,6 +10,7 @@ import librosa.display
 from pathlib import Path 
 import random
 import librosa
+from os import path
 
 def audioClassification(audio, sr, refID, melSpectogramPath):
     split_audio_duration = 3*sr
@@ -48,8 +49,9 @@ def generateMelspectrogram(split_audio, sr, melSpectogramPath, refID, i):
     return fileName
 
 basepath = path.dirname(__file__)
-melSpectogramPath = os.path.join(basepath,'mel-spectogram-images')    
 audio_path = os.path.join(basepath,'audio') 
+melSpectogramPath = os.path.join(basepath,'mel-spectogram-images') 
+os.makedirs(melSpectogramPath)  
 
 files= list(Path(audio_path).glob('*.wav'))
 for audio_file in files:
