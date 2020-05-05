@@ -3,7 +3,7 @@ from os import path
 import subprocess
 
 basepath = path.dirname(__file__)
-videoDirPath = os.path.join(basepath,'videos')
+videoDirPath = os.path.join(basepath,'videos1')
 for filename in os.listdir(videoDirPath):
     if filename.endswith(".mp4"):
         input_video_file = os.path.join(videoDirPath, filename)

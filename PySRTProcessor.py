@@ -18,7 +18,7 @@ def getAudioDuration(audioFilePath):
     return noOfSeconds
 
 basepath = path.dirname(__file__)
-videoDirPath = os.path.join(basepath,'videos')
+videoDirPath = os.path.join(basepath,'videos1')
 
 for filename in os.listdir(videoDirPath):
     if filename.endswith(".srt"):
@@ -43,5 +43,5 @@ for filename in os.listdir(videoDirPath):
             subRecordSecRange = np.arange(startSec, endSec+1)
             subTitlePositiveLabelSet.update(subRecordSecRange)
         subTitleDataFrame.loc[subTitlePositiveLabelSet, 'label'] = 1
-        subTitleDataFrame.to_csv('features.csv', header=False, mode='a')
+        subTitleDataFrame.to_csv('features1.csv', header=False, mode='a')
 print('done')

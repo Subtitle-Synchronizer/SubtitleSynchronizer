@@ -49,11 +49,11 @@ def generateMelspectrogram(split_audio, sr, melSpectogramPath, refID, i):
     return fileName
 
 basepath = path.dirname(__file__)
-audio_path = os.path.join(basepath,'audio') 
+audio_path = os.path.join(basepath,'videos1')
 melSpectogramPath = os.path.join(basepath,'mel-spectogram-images') 
 os.makedirs(melSpectogramPath)  
 
-files= list(Path(audio_path).glob('*.wav'))
+files= list(Path(audio_path).glob('*.flac'))
 for audio_file in files:
     file = str(audio_file).split('\\')[-1].split('.')[0]
     print('processing file: ', file)
