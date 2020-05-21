@@ -9,8 +9,8 @@ package_name = 'SubtitleSynchronizer'
 
 setup(
     name=package_name,
-    version='0.1.4',
-    description='Automatically synchronize subtitles with audio',
+    version='0.0.1',
+    description='Automatically synchronize subtitles with video files',
     long_description=long_description,
     url='https://github.com/Subtitle-Synchronizer/' + package_name,
     author='Abhishek Khandelwal',

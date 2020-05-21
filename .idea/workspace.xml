@@ -2,31 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e25747a-c636-4f84-a23e-0a1673341696" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActionPlan.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AudioProcessing.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BuildDataset.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ExtractAudio.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GenerateMelSpectogram.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProcessLargeAudioFile.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PySRTProcessor.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SubTitleSync.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/autosubsync/GardenofEvil.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/autosubsync/GardenofEvil_10_2.srt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/autosubsync/SpleeterBasedTrain.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/autosubsync/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/autosubsync/features.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/autosubsync/find_transform.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/autosubsync/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/autosubsync/model.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/autosubsync/preprocessing.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/autosubsync/quality_of_fit.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/autosubsync/srt_io.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/autosubsync/trained-model.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/autosubsync/trained_logistic_regression.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/brisquequality_1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
