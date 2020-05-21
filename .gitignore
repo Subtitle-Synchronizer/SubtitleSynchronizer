@@ -1,2 +1,13 @@
 /data/
 /pretrained_models/
+.ipynb_checkpoints/
+__pycache__
+training/sources.csv
+training/data/
+notebooks/
+*.pyc
+trained-model.bin
+venvs/
+*.egg-info/
+dist/
+build/

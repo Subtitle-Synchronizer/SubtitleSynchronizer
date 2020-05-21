@@ -1,0 +1,6 @@
+# development requirements
+pysoundfile
+pandas
+numpy
+sklearn
+nose
