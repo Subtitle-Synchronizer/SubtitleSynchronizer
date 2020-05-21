@@ -9,7 +9,7 @@ package_name = 'SubtitleSynchronizer'
 
 setup(
     name=package_name,
-    version='0.0.1',
+    version='0.0.3',
     description='Automatically synchronize subtitles with video files',
     long_description=long_description,
     url='https://github.com/Subtitle-Synchronizer/' + package_name,
@@ -36,7 +36,7 @@ setup(
     packages=['SubtitleSynchronizer'],
 
     # distribute the trained model file in the package
-    # package_data={ package_name: ['../trained-model.bin'] },
+    package_data={ package_name: ['../trained.model.spleeter.bin'] },
 
     # define command line entry point
     entry_points = {

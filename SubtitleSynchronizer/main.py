@@ -31,7 +31,7 @@ def synchronize(video_file, subtitle_file, output_file, verbose=False, \
         verbose (boolean): If True, print progress information to stdout
         return_parameters (boolean): If True, returns the syncrhonization
             parameters instead of just the success flag
-        other arguments: Search parameters, see ``autosubsync --help``
+        other arguments: Search parameters, see ``SubtitleSynchronizer --help``
 
     Returns:
         If return_parameters is False (default), returns
@@ -46,13 +46,13 @@ def synchronize(video_file, subtitle_file, output_file, verbose=False, \
 
     """
 
-    # these are here to enable running as python3 autosubsync/main.py
-    from autosubsync import features
-    from autosubsync import find_transform
-    from autosubsync import model
-    from autosubsync import preprocessing
-    from autosubsync import quality_of_fit
-    from autosubsync import srt_io
+    # these are here to enable running as python3 SubtitleSynchronizer/main.py
+    from SubtitleSynchronizer import features
+    from SubtitleSynchronizer import find_transform
+    from SubtitleSynchronizer import model
+    from SubtitleSynchronizer import preprocessing
+    from SubtitleSynchronizer import quality_of_fit
+    from SubtitleSynchronizer import srt_io
 
     # first check that the SRT file is valid before extracting any audio data
     srt_io.check_file(subtitle_file)
@@ -67,7 +67,7 @@ def synchronize(video_file, subtitle_file, output_file, verbose=False, \
     # argument parsing
     if model_file is None:
         from pkg_resources import resource_filename
-        model_file = resource_filename(__name__, 'trained.model.spleeter.bin')
+        model_file = resource_filename(__name__, '../trained.model.spleeter.bin')
 
     print('Input video file: ', video_file)
     print('Input SRT file: ', subtitle_file)
@@ -79,18 +79,14 @@ def synchronize(video_file, subtitle_file, output_file, verbose=False, \
     # load model
     trained_model = model.load(model_file)
 
-    if verbose:
-        print('Step-1 of 5: Extracting audio using ffmpeg/spleeter and reading subtitles...')
     sound_data, subvec = preprocessing.import_target_files(video_file, subtitle_file)
 
-    if verbose:
-        print('Step-2 of 5: computing features for %d audio samples using %d parallel process(es)' % (len(subvec), parallelism))
-
+    print('Step-4 of 7: computing features for %d audio samples using %d parallel process(es)' % (len(subvec), parallelism))
     features_x, shifted_y = features.compute(sound_data, subvec, parallelism=parallelism)
 
-    if verbose:
-        print('extracted features of size %s, performing speech detection' % str(features_x.shape))
-        print('Step-3 of 5: Performing model prediction ...')
+
+    print('extracted features of size %s, performing speech detection' % str(features_x.shape))
+    print('Step-5 of 7: Performing model prediction ...')
 
     y_scores = model.predict(trained_model, features_x)
 
@@ -98,8 +94,7 @@ def synchronize(video_file, subtitle_file, output_file, verbose=False, \
     del features_x, sound_data, subvec
     gc.collect()
 
-    if verbose:
-        print('Step-4 of 5: Computing best fit with %d frames' % len(y_scores))
+    print('Step-6 of 7: Computing best fit with %d frames' % len(y_scores))
 
     skew, shift, quality = find_transform.find_transform_parameters(\
         shifted_y, y_scores, \
@@ -108,14 +103,13 @@ def synchronize(video_file, subtitle_file, output_file, verbose=False, \
 
     success = quality > quality_of_fit.threshold
 
-    if verbose:
-        print('quality of fit: %g, threshold %g' % (quality, quality_of_fit.threshold))
-        print('Step-5 of 5: Fit complete. Performing resync, writing to ' + output_file)
+    print('quality of fit: %g, threshold %g' % (quality, quality_of_fit.threshold))
+    print('Step-7 of 7: Fit complete. Performing resync, writing to ' + output_file)
 
     transform_func = find_transform.parameters_to_transform(skew, shift)
     preprocessing.transform_srt(subtitle_file, output_file, transform_func)
 
-    if verbose and success: print('success!')
+    if success: print('success!')
 
     if return_parameters:
         return success, quality, skew, shift

@@ -43,7 +43,6 @@ def get_video_length(filename):
 
 def import_sound_test(sound_path):
     import soundfile
-    print('inside import soudnte test method')
     target_sample_rate = 20000
     warning_threshold = 8000
 
@@ -95,7 +94,6 @@ def import_subs(srt_filename, sample_rate, n, **kwargs):
 
 
 def import_item(sound_file, subtitle_file, **kwargs):
-    print('before calling imort soud test method')
     sound_data = import_sound_test(sound_file)
     samples, sample_rate, data_range = sound_data
     n = len(samples)
@@ -141,18 +139,18 @@ def import_target_files(video_file, subtitle_file, **kwargs):
 
     try:
         print('Step-1 of 7: Extracting audio using ffmpeg ...')
-        #extract_sound(video_file, sound_file)
+        extract_sound(video_file, sound_file)
 
         print('Step-2 of 7: Extracting Vocal signals using Spleeter ...')
-        #extract_vocal_signals(sound_file, tmp_dir)
+        extract_vocal_signals(sound_file, tmp_dir)
 
-        #vocal_file = os.path.join(tmp_dir, 'sound', 'vocals.wav')
-        vocal_file = 'Every_Waking_Breath.flac'
+        vocal_file = os.path.join(tmp_dir, 'sound', 'vocals.wav')
         print('Step-3 of 7: Reading vocal signals using Soundfile and reading subtitles...')
         return import_item(vocal_file, subtitle_file, **kwargs)
 
     finally:
         clear()
+
 
 def transform_srt(in_srt, out_srt, transform_func):
     with open(out_srt, 'wb') as out_file:
