@@ -1,3 +1,18 @@
+'''
+This python file is trying to sync given subtitle (SRT) file with given video file based on determining non-mute sections in video file.
+
+Steps to sync SRT file are:
+1. Split original video file into chunk of 10 min video [using ffmpeg]
+2. Extract Audio signal from each chunk video file [using ffmpeg]
+3. Extract Vocal signals from each audio file [using spleeter]
+4. Get not-mute sections from each voca signal using Pydub library
+5. Overlap not-mute sections based on given threshold value 
+6. Read SRT file and trasnform it into JSON structure
+7. Sync subtitles based on non-mute sections
+8. Generate new synced subtitle file 
+
+'''
+
 #!/usr/bin/python3
 import argparse
 import numpy as np
