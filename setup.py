@@ -36,7 +36,7 @@ setup(
     packages=['SubtitleSynchronizer'],
 
     # distribute the trained model file in the package
-    package_data={ package_name: ['../trained.model.spleeter.bin'] },
+    package_data={ package_name: ['../subtitlesync.trained.model.bin'] },
 
     # define command line entry point
     entry_points = {

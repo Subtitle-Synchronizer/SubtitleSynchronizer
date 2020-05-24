@@ -67,7 +67,7 @@ def synchronize(video_file, subtitle_file, output_file, verbose=False, \
     # argument parsing
     if model_file is None:
         from pkg_resources import resource_filename
-        model_file = resource_filename(__name__, '../trained.model.spleeter.bin')
+        model_file = resource_filename(__name__, '../subtitlesync.trained.model.bin')
 
     print('Input video file: ', video_file)
     print('Input SRT file: ', subtitle_file)
@@ -126,7 +126,7 @@ def cli(packaged_model=False):
 
     # Make model file an argument only in the non-packaged version
     if not packaged_model:
-        p.add_argument('--model_file', default='trained.model.spleeter.bin')
+        p.add_argument('--model_file', default='subtitlesync.trained.model.bin')
 
     p.add_argument('--max_shift_secs', default=20.0, type=float,
         help='Maximum subtitle shift in seconds (default 20)')

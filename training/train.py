@@ -40,7 +40,7 @@ def load_features():
 def train():
     all_x, all_y = load_features()
     trained = model.train_with_spleeter_output(all_x, all_y)
-    target_file = "trained.model.spleeter.bin"
+    target_file = "subtitlesync.trained.model.bin"
     print('serializing model to ' + target_file)
     model.save(trained, target_file)
 
