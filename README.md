@@ -1,14 +1,16 @@
+Subtitle Synchronizer - with the application of AI and Probability concepts
+
 Subtitle Synchronization is an interesting problem to solve with the application of 
 Machine Learning and Probability.
 
 There are already quite a few python libraries that deal with this problem and this
-library is inspired from a famous library called 'autosubsync' [https://github.com/oseiskar/autosubsync].
+library is inspired from a famous library called <a href="https://github.com/oseiskar/autosubsync">'autosubsync'</a>.
 
 Subtitle Synchronization has two major processing steps:
 
 --> Vocal section identification
     This processing is associated with identification of vocal section present in video file. This library
-uses Spleeter, open source audio separation library for this purpose and then uses audio processing
+uses <a href="https://github.com/deezer/spleeter">Spleeter</a>, open source audio separation library for this purpose and then uses audio processing
 technique to build the vocal classification model.
 
 This library differs from 'autosubsync' on this step. 'autosubsync' uses the labeling of vocal section
@@ -25,4 +27,4 @@ Here, we reuse the processing of 'autosubsync' library completely. Author of aut
 outstanding job in applying 'bernoulli equation' in solving this step. It was a
 very good learning for us to understand the application. 
 
-Pls refer this blog for the detailed information about the processing involved in this library. 
+Pls refer this <a href="https://medium.com/@vvk.victory/subtitle-synchronization-ai-probabilitistc-approach-to-the-rescue-e59e166c5f25?postPublishedType=initial">blog</a> for the detailed information about the processing involved in this library. 
