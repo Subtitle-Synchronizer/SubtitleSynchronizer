@@ -22,6 +22,7 @@ import subprocess
 import shutil
 from pydub import AudioSegment
 from pydub.silence import  detect_nonsilent
+from pydub.silence import detect_silence
 import datetime
 import copy
 import pysrt
@@ -79,6 +80,22 @@ def extractVocalSignals(outputAudeoDirPath):
          ]
         output = subprocess.call(extract_sound_cmd)
         print('output: ', output)
+    
+    
+def getMuteSections(outputAudeoDirPath):
+    nonMuteSections = []
+    for filename in os.listdir(outputAudeoDirPath):
+        if ".flac" not in filename:
+            vocalDir = os.path.join(outputAudeoDirPath, filename)
+            for vocalFileName in os.listdir(vocalDir):
+                if vocalFileName == 'vocals.wav':
+                    vocalFile = os.path.join(vocalDir, vocalFileName)
+                    audio_signal = AudioSegment.from_file(vocalFile, "wav")
+                    print(vocalDir, '  Duration of Audio Signal: ', len(audio_signal) / 1000)
+                    nonsilent_audio_range = detect_silence(audio_signal,min_silence_len=1000,silence_thresh=-33)
+                    nonMuteSections.append(nonsilent_audio_range)
+    
+    return nonMuteSections[0]
     
 
 def getNonMuteSections(outputAudeoDirPath):

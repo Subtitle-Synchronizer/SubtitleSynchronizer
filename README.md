@@ -33,7 +33,7 @@ Pls refer this <a href="https://medium.com/@vvk.victory/subtitle-synchronization
 ## Installation
 
 ### macOS / OSX
-Prerequisites: Install [Homebrew](https://brew.sh/) and [pip](https://stackoverflow.com/questions/17271319/how-do-i-install-pip-on-macos-or-os-x). Then install FFmpeg, [spleeter] (https://github.com/deezer/spleeter) and this package
+Prerequisites: Install [Homebrew](https://brew.sh/) and [pip](https://stackoverflow.com/questions/17271319/how-do-i-install-pip-on-macos-or-os-x). Then install FFmpeg, [spleeter](https://github.com/deezer/spleeter) and this package
 
 ```
 brew install ffmpeg
@@ -44,7 +44,7 @@ pip install subtitlesynchronizer
 ### Linux (Debian & Ubuntu)
 
 Make sure you have Pip, e.g., `sudo apt-get install python-pip`.
-Then install [FFmpeg](https://www.ffmpeg.org/), [spleeter] (https://github.com/deezer/spleeter) and this package
+Then install [FFmpeg](https://www.ffmpeg.org/), [spleeter](https://github.com/deezer/spleeter) and this package
 ```
 sudo apt-get install ffmpeg
 sudo pip install spleeter
@@ -70,9 +70,9 @@ See `subtitlesynchronizer --help` for more details.
 
 ### Data Generation
 
- 1. For Vocal audio files, we referred 'LibriSpeech' dataset. Refer this [link] (http://www.openslr.org/12)
- 2. For non-vocal (background noise/sound), we referred urban dataset
- 3. For non-vocal (mute sound), we used spleeter to extract mute sections from given autio file
+ 1. For Vocal audio files, we referred 'LibriSpeech' dataset. Refer this [link](http://www.openslr.org/12)
+ 2. For non-vocal (background noise/sound), we referred Urban Sound dataset from [here] (https://urbansounddataset.weebly.com/urbansound8k.html)
+ 3. For non-vocal (mute sound), we used spleeter and pydub to extract mute sections from given autio file. Refer training/generate_mute_signals.py file to generate mute signals.
 
 ### Training the model
 
