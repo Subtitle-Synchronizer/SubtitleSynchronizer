@@ -71,8 +71,8 @@ See `subtitlesynchronizer --help` for more details.
 ### Data Generation
 
  1. For Vocal audio files, we referred 'LibriSpeech' dataset. Refer this [link](http://www.openslr.org/12)
- 2. For non-vocal (background noise/sound), we referred Urban Sound dataset from [here] (https://urbansounddataset.weebly.com/urbansound8k.html)
- 3. For non-vocal (mute sound), we used spleeter and pydub to extract mute sections from given autio file. Refer training/generate_mute_signals.py file to generate mute signals.
+ 2. For non-vocal (background noise/sound), we referred Urban Sound dataset from [here](https://urbansounddataset.weebly.com/urbansound8k.html)
+ 3. For non-vocal (mute sound), we used spleeter and pydub to extract mute sections from given video file. Refer training/generate_mute_signals.py file to generate mute signals.
 
 ### Training the model
 
